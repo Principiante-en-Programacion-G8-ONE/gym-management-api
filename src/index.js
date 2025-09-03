@@ -7,6 +7,8 @@ dotenv.config();
 
 // Importar rutas
 const systemUserRoutes = require('./routes/systemUserRoutes');
+const membershipRoutes = require('./routes/membershipRoutes'); // <-- NUEVO
+const memberRoutes = require('./routes/memberRoutes'); // <-- NUEVO
 
 // Inicializar la aplicación de Express
 const app = express();
@@ -17,8 +19,8 @@ app.use(express.json()); // Permite al servidor entender JSON en los request bod
 
 // Rutas de la API
 app.use('/api/system-users', systemUserRoutes);
-// Aquí se agregarían más rutas para miembros, membresías, etc.
-// app.use('/api/members', memberRoutes);
+app.use('/api/memberships', membershipRoutes); // <-- NUEVO
+app.use('/api/members', memberRoutes); // <-- NUEVO
 
 // Ruta de prueba
 app.get('/', (req, res) => {
