@@ -68,7 +68,7 @@ exports.loginSystemUser = async (req, res) => {
         );
 
         if (rows.length === 0) {
-            return res.status(401).json({ message: 'Invalid credentials' });
+            return res.status(401).json({ message: 'The user not exist'});
         }
 
         const user = rows[0];
